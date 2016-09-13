@@ -13,6 +13,20 @@ into your web root.
 4. Following the nginx-proxy 
 [example docker-compose.yml](https://github.com/jwilder/nginx-proxy/blob/master/docker-compose.yml),
 add the code to your application's Docker Compose file.
+5. Define the ports to avoid collisions with other applications, making
+sure to map to the default port.
+e.g.
+
+    ```yml
+    services:
+      web:
+        image: web
+        environment:
+          VIRTUAL_HOST: mysite.com
+        ports:
+          - "8080:80"
+    ```
+
 5. Define the following network your application's Docker Compose file 
 (at the bottom of the file, outside of `services`):
 
@@ -34,11 +48,11 @@ add the code to your application's Docker Compose file.
 
     ```yml
     services:
-    web:
-      image: web
-      container_name: web
-      networks:
-        - front
+      web:
+        image: web
+        container_name: web
+        networks:
+          - front
     ```
 
 7. Commit, push, and pull on your host (web) server.
