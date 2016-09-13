@@ -8,7 +8,7 @@ Default nginx-proxy container for mapping hostname to correct Docker application
 into your web root.
 2. Navigate into `pmg-docker-nginx-proxy`.
 3. Run `docker-compose up -d --build`.
-4.Following the nginx-proxy 
+4. Following the nginx-proxy 
 [example docker-compose.yml](https://github.com/jwilder/nginx-proxy/blob/master/docker-compose.yml),
 add the code to your application's Docker Compose file.
 5. Commit, push, and pull on your host (web) server.
