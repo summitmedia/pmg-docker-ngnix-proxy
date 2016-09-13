@@ -14,12 +14,16 @@ into your web root.
 [example docker-compose.yml](https://github.com/jwilder/nginx-proxy/blob/master/docker-compose.yml),
 add the code to your application's Docker Compose file.
 5. Define the following network:
-```networks:
-     front:
-       external: true```
+```yml
+networks:
+  front:
+    external: true
+```
 6. Use the front network on the desired services by adding to the bottom
 of the file:
-```networks:
-        - front```
+```yml
+networks:
+  - front
+```
 7. Commit, push, and pull on your host (web) server.
 8. Run `docker-compose up -d --build` or a custom build script.
