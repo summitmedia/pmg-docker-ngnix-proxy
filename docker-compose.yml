@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    container_name: nginx-proxy
+    network_mode: bridge
+    ports:
+      - "80:80"
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
+      - ./nginx-log:/var/log/nginx
+      - /var/run/docker.sock:/tmp/docker.sock:ro
