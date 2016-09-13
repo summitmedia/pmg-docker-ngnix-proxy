@@ -1,1 +1,5 @@
+# Ignore nginx log files
 nginx-log
+
+# Ignore site-specific htpasswd files
+config/htpasswd/*

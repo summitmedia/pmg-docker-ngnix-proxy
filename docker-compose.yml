@@ -13,6 +13,7 @@ services:
       - ./certs:/etc/nginx/certs:ro
       - ./nginx-log:/var/log/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./config/htpasswd:/etc/nginx/htpasswd
 
 networks:
   front:
