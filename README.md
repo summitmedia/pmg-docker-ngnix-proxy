@@ -20,6 +20,6 @@ add the code to your application's Docker Compose file.
 6. Use the front network on the desired services by adding to the bottom
 of the file:
 ```networks:
-     - front```
+        - front```
 7. Commit, push, and pull on your host (web) server.
 8. Run `docker-compose up -d --build` or a custom build script.
