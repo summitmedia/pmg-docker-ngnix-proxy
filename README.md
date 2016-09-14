@@ -57,3 +57,11 @@ e.g.
 
 7. Commit, push, and pull on your host (web) server.
 8. Run `docker-compose up -d --build` or a custom build script.
+
+### Setting Up Basic Authentication Support
+
+To secure your virtual host, create a htpasswd file named as its equivalent `VIRTUAL_HOST` variable in `config/htpasswd`.
+
+For example, if you have `VIRTUAL_HOST: more.cool.com`, create a htpasswd file at `config/htpasswd/more.cool.com`.
+
+[How to Create an htpasswd file](http://httpd.apache.org/docs/2.2/programs/htpasswd.html)
