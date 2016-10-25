@@ -14,6 +14,7 @@ services:
       - ./nginx-log:/var/log/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./config/htpasswd:/etc/nginx/htpasswd
+      - ./config/nginx/nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro
 
 networks:
   front:
