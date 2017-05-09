@@ -2,4 +2,14 @@
 nginx-log
 
 # Ignore site-specific htpasswd files
-config/htpasswd/*
+volumes/htpasswd/*
+
+### nginx-proxy
+volumes/certs/*
+!volumes/certs/.gitkeep
+
+volumes/conf.d/*
+!volumes/conf.d/.gitkeep
+
+volumes/vhost.d/*
+!volumes/vhost.d/.gitkeep
