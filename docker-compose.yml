@@ -12,8 +12,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./conf.d:/etc/nginx/conf.d
-      - ./vhost.d:/etc/nginx/vhost.d
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./config/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./config/htpasswd:/etc/nginx/htpasswd
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs:ro
 
@@ -23,20 +24,22 @@ services:
     container_name: nginx-gen
     restart: unless-stopped
     volumes:
-      - ./conf.d:/etc/nginx/conf.d
-      - ./vhost.d:/etc/nginx/vhost.d
-      - ./html:/usr/share/nginx/html
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./config/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./config/htpasswd:/etc/nginx/htpasswd
+       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./config/nginx/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+      - ./config/docker-gen/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
 
   nginx-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-letsencrypt
     restart: unless-stopped
     volumes:
-      - ./conf.d:/etc/nginx/conf.d
-      - ./vhost.d:/etc/nginx/vhost.d
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./config/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./config/htpasswd:/etc/nginx/htpasswd
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
